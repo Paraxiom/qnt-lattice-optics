@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{lipsum}
+
+\title{Quantum Nanotube Array as Photonic Repeater and Sensor:\newline A Novel Architecture for Quantum Communication and Sensing}
+\author{Paraxiom}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This document outlines a conceptual architecture for a quantum repeater and quantum sensor based on arrays of carbon nanotubes with embedded gas cavities and externally coated reflective surfaces. Each nanotube acts as a microscopic cavity capable of maintaining a photon in resonance. The system's collective output, when properly aligned, can be externally monitored via interference patterns or field perturbations, making it a candidate for distributed quantum communication and sensing.
+	\end{abstract}
+	
+	\section{Introduction}
+	Quantum communication systems demand devices capable of preserving entanglement and signal integrity over long distances. Nanotube-based architectures may offer new opportunities by enabling extremely compact resonant cavities with scalable array layouts. This document refines our understanding of how such a device could act as both a quantum repeater and a sensor.
+	
+	\section{Nanotube Structure}
+	Each nanotube:
+	\begin{itemize}
+		\item Is cylindrical with a hollow interior.
+		\item Contains a sealed quantum gas (e.g., noble gas such as He, Ne, Ar).
+		\item Is externally coated with a partially reflective mirror layer, typically dielectric or metal-dielectric (e.g., SiO$_2$/Ta$_2$O$_5$ stack or silver/aluminum).
+		\item May be positioned in an electromagnetic or acoustic field for alignment or modulation.
+	\end{itemize}
+	
+	\subsection{Geometric Parameters}
+	\begin{itemize}
+		\item Diameter: \SIrange{1}{10}{\nano\meter}
+		\item Length: \SIrange{100}{500}{\nano\meter}
+		\item Density: up to $10^9$ per \si{cm^2}
+	\end{itemize}
+	
+	\section{Repeating Mechanism}
+	The repeating function arises from the emission, trapping, and re-emission of photons in the nanotube array:
+	\begin{enumerate}
+		\item A quantum signal photon (from up to \SI{40}{\kilo\meter} distant QKD node) enters the tube.
+		\item It interacts with the internal noble gas, inducing quantum transitions.
+		\item Photon is partially absorbed and re-emitted, preserving phase or entangled state.
+		\item Reflective coatings maintain internal resonance.
+		\item Coherent emission is guided out via tuned geometry or synchronized external modulation.
+	\end{enumerate}
+	This allows photons to be re-amplified and phase-aligned, enabling repeatability.
+	
+	\section{Quantum Sensor Properties}
+	As quantum resonators:
+	\begin{itemize}
+		\item The tubes respond to perturbations such as electric, magnetic, pressure, or sound fields.
+		\item Sound-induced modulation may enhance sensitivity or be used for signal filtering.
+		\item Output frequency shifts can encode environmental information.
+	\end{itemize}
+	
+	\section{External Readout and Monitoring}
+	Due to the vast number of nanotubes:
+	\begin{itemize}
+		\item Direct probing is infeasible; instead, the system's aggregate optical output (interference patterns) is analyzed.
+		\item CCDs, photodiodes, or spectrometers monitor the ensemble.
+		\item Electrical properties across the substrate (impedance, inductive coupling) may also serve as monitoring channels.
+	\end{itemize}
+	
+	\section{Input and Integration}
+	\begin{itemize}
+		\item Input is a quantum signal arriving via optical fiber or waveguide.
+		\item Entry points are distributed or centralized using tapered photonic couplers.
+		\item The incoming signal synchronizes the excitation phase across the array.
+	\end{itemize}
+	
+	\section{Potential Applications}
+	\begin{itemize}
+		\item Quantum repeater nodes within mesh networks.
+		\item Passive QKD surface panels for secure urban communication.
+		\item Hybrid NFT-encoded identity via quantum signal imprinting.
+		\item Environmental field sensors operating below thermal noise.
+	\end{itemize}
+	
+	\section{Conclusion}
+	The proposed carbon nanotube architecture serves as both repeater and sensor through its capacity for resonance, modulation, and ensemble readout. With proper fabrication and modulation, it represents a passive and distributed quantum platform.
+	
+	\section{References}
+	\begin{itemize}
+		\item S.G. Balasubramani et al., ``Noble gas encapsulation into carbon nanotubes: Predictions from analytical model and DFT studies,'' \textit{J. Chem. Phys.}, 141, 184304 (2014).
+		\item D.L. Chen et al., ``Gas desorption energies on metallic and semiconducting SWCNTs,'' \textit{J. Am. Chem. Soc.}, 135, 7768 (2013).
+		\item B.J. Cox et al., ``Mechanics of atoms and fullerenes in SWCNTs,'' \textit{Proc. R. Soc. A}, 463, 461–477 (2007).
+		\item A.T. Nasrabadi and M. Foroutan, ``Polymer interaction with boron nitride nanotubes,'' \textit{J. Phys. Chem. B}, 114, 15429 (2010).
+		\item M. Foroutan, ``Interfacial binding in carbon nanotube-polymer systems,'' \textit{J. Phys. Chem. B}, 114, 5320 (2010).
+	\end{itemize}
+	
+\end{document}
+

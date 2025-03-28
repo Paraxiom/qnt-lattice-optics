@@ -1,0 +1,212 @@
+digraph "Quantum_Nanotube_Array" {
+    // Graph styling
+    graph [
+        rankdir=TB,
+        //splines=ortho,  // Removed orthogonal lines to fix edge label issue
+        nodesep=0.8,
+        ranksep=1.0,
+        fontname="Arial",
+        fontsize=18,
+        label="Quantum Nanotube Array: Architecture and Interactions",
+        labelloc=t,
+        bgcolor="#f7f7f7"
+    ];
+    
+    // Node styling defaults
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Arial",
+        fontsize=12,
+        penwidth=1.5,
+        margin=0.3
+    ];
+    
+    // Edge styling defaults
+    edge [
+        fontname="Arial",
+        fontsize=10,
+        penwidth=1.2
+    ];
+    
+    // Subgraph for Physical Structure
+    subgraph cluster_structure {
+        label="Physical Structure";
+        style=filled;
+        color="#e6f3ff";
+        fontsize=14;
+        
+        nanotube [
+            label="Carbon Nanotube\n1-10nm diameter\n100-500nm length",
+            fillcolor="#a6d5fa"
+        ];
+        
+        quantum_gas [
+            label="Quantum Gas\n(Noble Gas/\nCompound)",
+            fillcolor="#c6e3fa"
+        ];
+        
+        coating [
+            label="Reflective Coating\n(Ag/Pt nanoparticles)",
+            fillcolor="#c6e3fa"
+        ];
+        
+        matrix [
+            label="Polymer Matrix\n(PMMA/PC/Silica)",
+            fillcolor="#c6e3fa"
+        ];
+        
+        alt_materials [
+            label="Alternative Materials\n(BNNTs, TMDCs)",
+            fillcolor="#c6e3fa",
+            style="rounded,filled,dashed"
+        ];
+        
+        piezo_layer [
+            label="Piezoelectric\nExcitation Layer",
+            fillcolor="#c6e3fa"
+        ];
+    }
+    
+    // Subgraph for Operating Mechanisms
+    subgraph cluster_mechanisms {
+        label="Operating Mechanisms";
+        style=filled;
+        color="#e6ffe6";
+        fontsize=14;
+        
+        photon_absorption [
+            label="Photon Absorption\n& Re-emission",
+            fillcolor="#a6fab5"
+        ];
+        
+        resonance [
+            label="Internal\nResonance",
+            fillcolor="#c6fac6"
+        ];
+        
+        coherent_emission [
+            label="Coherent Emission\n& Redirection",
+            fillcolor="#c6fac6"
+        ];
+        
+        phonon_interaction [
+            label="Phonon-Photon\nInteractions",
+            fillcolor="#c6fac6"
+        ];
+        
+        decoherence_control [
+            label="Decoherence\nMitigation",
+            fillcolor="#c6fac6"
+        ];
+    }
+    
+    // Subgraph for Readout & Control
+    subgraph cluster_control {
+        label="Readout & Control Systems";
+        style=filled;
+        color="#fff2e6";
+        fontsize=14;
+        
+        optical_readout [
+            label="Optical Interference\nReadout (CCD/Photodiode)",
+            fillcolor="#fad6a6"
+        ];
+        
+        electrical_readout [
+            label="Electrical Changes\nMonitoring",
+            fillcolor="#faccc6"
+        ];
+        
+        em_control [
+            label="EM Field\nControl",
+            fillcolor="#fac6e0"
+        ];
+        
+        acoustic_control [
+            label="Acoustic\nExcitation",
+            fillcolor="#fac6e0"
+        ];
+    }
+    
+    // Subgraph for Applications
+    subgraph cluster_applications {
+        label="Applications";
+        style=filled;
+        color="#f2e6ff";
+        fontsize=14;
+        
+        qkd [
+            label="Quantum Key\nDistribution",
+            fillcolor="#d9b3ff"
+        ];
+        
+        entanglement [
+            label="Entanglement\nDistribution",
+            fillcolor="#c6a6fa"
+        ];
+        
+        sensing [
+            label="Ambient Quantum\nSensing",
+            fillcolor="#c6a6fa"
+        ];
+        
+        mesh_network [
+            label="Decentralized\nOptical Mesh Networks",
+            fillcolor="#c6a6fa"
+        ];
+        
+        nft_memory [
+            label="Substrate-level\nQuantum State Memory",
+            fillcolor="#c6a6fa"
+        ];
+    }
+    
+    // External Infrastructure (changed from cloud to ellipse)
+    external_infrastructure [
+        label="Existing Quantum\nInfrastructure",
+        fillcolor="#e6e6e6",
+        shape=ellipse
+    ];
+    
+    // Connections between Physical Components
+    nanotube -> quantum_gas [label="contains"];
+    nanotube -> coating [label="coated with"];
+    matrix -> nanotube [label="embeds"];
+    matrix -> piezo_layer [label="interfaces with"];
+    nanotube -> alt_materials [label="alternatives", style=dashed];
+    
+    // Quantum Gas & Optical Interactions
+    quantum_gas -> photon_absorption [label="enables"];
+    coating -> resonance [label="maintains"];
+    
+    // Operational Mechanism Connections
+    photon_absorption -> resonance [label="feeds"];
+    resonance -> coherent_emission [label="leads to"];
+    matrix -> phonon_interaction [label="mediates"];
+    nanotube -> phonon_interaction [label="hosts"];
+    phonon_interaction -> decoherence_control [label="requires"];
+    piezo_layer -> acoustic_control [label="implements"];
+    
+    // Control Systems
+    piezo_layer -> acoustic_control [label="provides"];
+    coherent_emission -> optical_readout [label="measured by"];
+    matrix -> electrical_readout [label="changes detected in"];
+    em_control -> nanotube [label="aligns"];
+    acoustic_control -> coherent_emission [label="synchronizes"];
+    
+    // Output Applications
+    coherent_emission -> entanglement [label="enables"];
+    coherent_emission -> qkd [label="secures"];
+    decoherence_control -> mesh_network [label="stabilizes"];
+    phonon_interaction -> sensing [label="enhances"];
+    resonance -> nft_memory [label="stores"];
+    
+    // Readout to Applications
+    optical_readout -> mesh_network [label="monitors"];
+    optical_readout -> sensing [label="detects"];
+    
+    // Connection to Existing Infrastructure
+    mesh_network -> external_infrastructure [label="integrates with"];
+    qkd -> external_infrastructure [label="secures"];
+}

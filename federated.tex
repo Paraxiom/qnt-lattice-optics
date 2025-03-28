@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage{authblk}
+\title{Extending PQBFL: Governance-Driven Weight Management in Federated Learning with Post-Quantum and Quantum Key Secure Infrastructure}
+\author[1]{Sylvain Cormier}
+\affil[1]{Paraxiom, Sainte-Ad\`ele, Qu\'ebec, Canada\\
+	\texttt{https://paraxiom.org}}
+\date{March 2025}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		We propose an extension to the Post-Quantum Blockchain-based Federated Learning (PQBFL) protocol by introducing selective on-chain model weight governance. This extension maintains the core security benefits of PQBFL—post-quantum confidentiality, forward secrecy, and post-compromise resilience—while introducing decentralized control over critical model parameters. Leveraging smart contracts and consensus mechanisms, certain model weights are rendered mutable only through collective validation, while others continue to evolve through privacy-preserving off-chain learning. This hybrid approach is particularly suited for safety-critical deployments, such as aerospace and quantum infrastructure, where trust minimization and transparency must coexist.
+	\end{abstract}
+	
+	\section{Introduction}
+	PQBFL \cite{gharavi2025pqbfl} offers a secure and efficient federated learning (FL) protocol combining blockchain transparency with post-quantum cryptography and ratcheting mechanisms. However, current designs treat all model updates equally and off-chain, which may be insufficient in domains where consensus is required on key model components.
+	
+	In this paper, we extend PQBFL to support selective on-chain governance over model weights, enabling a multi-tier control system: some parameters update via private FL rounds, others by decentralized vote. We also outline how this integrates with QKD-secured channels, further hardening the system against quantum-capable adversaries.
+	
+	\section{Motivation and Related Work}
+	The PQBFL protocol \cite{gharavi2025pqbfl} addresses major challenges in FL security including model confidentiality, authenticity, and resistance to Harvest-Now Decrypt-Later (HNDL) threats. Its hybrid cryptographic ratcheting architecture (Kyber + ECDH + HKDF) ensures key freshness and temporal unlinkability. However, federated learning lacks robust auditability and fine-grained control when models operate in regulated environments.
+	
+	Decentralized governance mechanisms for AI training remain nascent \cite{xu2022laf}. On-chain model updates have been considered inefficient \cite{yang2022pqfl}, but selective governance—combined with efficient ratcheting and compression—opens new hybrid design space.
+	
+	\section{System Architecture}
+	We assume the presence of three main entities: Participants (FL nodes), the Aggregator (server), and the Blockchain (control and audit layer). The following elements extend the PQBFL architecture:
+	
+	\begin{itemize}[nosep]
+		\item \textbf{Model Partitioning:} Model $M$ is partitioned into $M = [M^g \| M^l]$ where $M^g$ are governance-controlled weights and $M^l$ are locally updated.
+		\item \textbf{Governance Contract:} A smart contract tracks $M^g$ updates, voting states, quorum requirements, and voting keys linked to participant addresses.
+		\item \textbf{Voting Mechanism:} Upon model update proposals, participants vote via zero-knowledge proofs of eligibility and intent.
+		\item \textbf{Model Merging:} Aggregators merge $M^g$ (on-chain approved) and $M^l$ (off-chain aggregated) prior to distribution.
+	\end{itemize}
+	
+	\section{Security Considerations}
+	The governance extension preserves PQBFL’s properties:
+	
+	\begin{itemize}[nosep]
+		\item \textbf{Confidentiality:} Off-chain encrypted communication for $M^l$ remains unchanged.
+		\item \textbf{Integrity:} Governance-controlled weights $M^g$ require quorum approval via authenticated voting.
+		\item \textbf{Post-Quantum Security:} All voting and key distribution channels can be augmented with QKD-derived keys.
+		\item \textbf{Forward Secrecy:} Ratcheting continues independently for $M^l$, while $M^g$ is hash-anchored to on-chain state.
+	\end{itemize}
+	
+	\section{Integration with QKD}
+	For high-assurance deployments, we suggest replacing or reinforcing the Kyber/ECDH shared secrets in PQBFL with QKD-derived symmetric keys. These QKD sessions establish fresh entropy used in the ratchet seed $RK_j$.
+	
+	Let $SS^Q$ be the QKD-derived secret shared between participant $P_i$ and server $S$. Then, root key $RK_j$ becomes:
+	\[
+	RK_j = KDF_{A}(SS^Q \| SS_k \| SS_e)
+	\]
+	This guarantees quantum entropy at the base of the ratcheting chain.
+	
+	\section{Applications}
+	This architecture suits:
+	\begin{itemize}[nosep]
+		\item \textbf{Critical Infrastructure:} Aerospace, satellite systems, smart grid learning modules.
+		\item \textbf{AI Regulation:} AI modules requiring human-in-the-loop consensus on value alignment parameters.
+		\item \textbf{Quantum Networks:} Coordination of ML models across nodes with QKD-capable links.
+	\end{itemize}
+	
+	\section{Conclusion and Future Work}
+	We presented an extension to the PQBFL protocol enabling governance-based model control, maintaining the cryptographic assurances of the original system. Future work includes:
+	\begin{itemize}[nosep]
+		\item Integrating post-quantum homomorphic encryption for $M^g$ voting privacy.
+		\item Adaptive ratcheting cadence based on model volatility.
+		\item Experimental deployment in satellite-ground hybrid federated environments.
+	\end{itemize}
+	
+	\bibliographystyle{ieeetr}
+	\begin{thebibliography}{9}
+		\bibitem{gharavi2025pqbfl}
+		H. Gharavi, J. Granjal, and E. Monteiro, "PQBFL: A Post-Quantum Blockchain-based Protocol for Federated Learning," arXiv:2502.14464v1, 2025.
+		
+		\bibitem{xu2022laf}
+		P. Xu et al., "LaF: Lattice-based and communication-efficient federated learning," IEEE TIFS, vol. 17, pp. 2483–2496, 2022.
+		
+		\bibitem{yang2022pqfl}
+		S. Yang et al., "A post-quantum secure aggregation for federated learning," ICCNS 2022, pp. 117–124.
+	\end{thebibliography}
+	
+\end{document}

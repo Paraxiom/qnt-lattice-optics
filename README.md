@@ -4,41 +4,72 @@
 **Repository:** `qnt-lattice-optics`
 
 ## Overview
-This repository contains the open research and design materials for a quantum nanotube-based architecture capable of acting as a **photonic repeater** and **distributed quantum sensor**. It leverages:
-
+This repository contains the open research and patent-ready design materials for a quantum nanotube-based architecture capable of acting as a **photonic repeater** and **distributed quantum sensor**. It leverages:
 - Vertically-aligned carbon nanotube arrays
 - Encapsulated noble gases
 - Metallic or catalytic coatings (e.g., Pt)
 - Diffraction-based ensemble readouts
-- Lattice optical behavior and quantum resonant phenomena
+- Phonon-photon interactions for signal modulation
+- Room-temperature quantum operations
+- Acoustic isolation via polymer matrix engineering
 
 Our goal is to provide an **open scientific framework** for next-generation quantum communication infrastructure that is:
-
 - Decentralized by design
 - Passive and solid-state
 - Scalable to large array sizes
 - Sensitive to quantum and environmental fields
+- Operable at room temperature without cryogenic requirements
+- Resilient against common decoherence mechanisms
+
+## Architecture Diagram
+
+![Quantum Nanotube Array Architecture](diagrams/receipe.png)
+
+*Figure 1: Complete architectural overview showing physical components, operating mechanisms, control systems, and applications of the quantum nanotube array.*
 
 ## Project Structure
-
 ```
 qnt-lattice-optics/
-├── qnt-repeater-array.tex        # Main LaTeX patent draft (compiles to PDF)
-├── qnt-repeater-array.pdf        # Generated paper (for readers)
-├── diagrams/                     # DOT/Graphviz + TikZ illustrations
-├── LICENSE                       # CERN-OHL-S license for open hardware
-├── README.md                     # This file
+├── qnt-repeater-array.tex # Main LaTeX patent draft (compiles to PDF)
+├── qnt-repeater-array.pdf # Generated patent draft (for readers)
+├── diagrams/ # DOT/Graphviz + TikZ illustrations
+├── fabrication/ # Proposed fabrication methods and parameters
+├── validation/ # Experimental validation roadmap
+├── integration/ # Integration guidelines for existing quantum systems
+├── LICENSE # CERN-OHL-S license for open hardware
+├── README.md # This file
 ```
 
 ## Current Status
-- ✅ Theoretical model written
+- ✅ Comprehensive theoretical model developed
 - ✅ Bibliography and peer-reviewed support for:
   - Noble gas encapsulation in CNTs
   - Metallization of CNTs with Pt
   - Acoustic and electromagnetic interactions
   - CNT-polymer matrix for stability and transparency
-- ✅ Far-field sensing via optical interference
+  - Phonon-photon interactions in nanostructures
+  - Room-temperature quantum coherence mechanisms
+- ✅ Decoherence mitigation strategies identified
+- ✅ Far-field sensing via optical interference patterns
+- ✅ Fabrication and scalability pathways outlined
+- ✅ Integration approach with existing quantum infrastructure
 - 🔜 Experimental validation
+- 🔜 Prototype development
+
+## Alternative Materials
+Beyond carbon nanotubes, we've identified several promising alternative materials:
+- Boron nitride nanotubes (BNNTs) for enhanced thermal stability
+- Transition metal dichalcogenide (TMDC) nanotubes for specialized electronic properties
+- Various quantum gas compositions for frequency-specific applications
+
+## Patent Information
+This work is being developed as an open patent under CERN-OHL-S. The comprehensive patent draft includes:
+- Detailed technical specifications
+- Claims covering both quantum repeater and sensor applications
+- Methods for fabrication and integration
+- Novel coherence preservation techniques
+- Room-temperature operation mechanisms
+- Decentralized network implementations
 
 ## License
 **CERN Open Hardware License v2 - Strongly Reciprocal (CERN-OHL-S)**
@@ -52,11 +83,8 @@ If you're collaborating or citing this work, please refer to:
 
 ## Contact
 This repository is maintained by **Paraxiom**.
-
-Lead author: Sylvain Cormier ([@Silvereau](https://github.com/Silvereau))  
+Lead author: Sylvain Cormier ([@Silvereau](https://github.com/Silvereau))
 Website: [https://paraxiom.org](https://paraxiom.org)
 
 ---
-
-> "The lattice sees not the particle, but the wave."
-
+> "The lattice sees not the particle, but the wave, yet through phonons, we control both."
