@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it as below."
+title: Quantum Nanotube Lattice Optics
+authors:
+  - family-names: Cormier
+    given-names: Sylvain
+    affiliation: Paraxiom
+    orcid: https://orcid.org/0000-0000-0000-0000
+  - name: Paraxiom Team
+date-released: 2025-03-26
+version: 0.1.0
+doi: 10.5281/zenodo.1234567  # <-- replace with your actual Zenodo DOI if not already present
+repository-code: https://github.com/Paraxiom/qnt-lattice-optics
+license: CERN-OHL-S-2.0
+keywords:
+  - quantum optics
+  - photonic repeater
+  - quantum sensing
+  - nanotubes
+  - open hardware
+type: software
+
